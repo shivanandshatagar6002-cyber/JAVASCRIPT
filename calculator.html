@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charaset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>Basic Calculator</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#74ebd5,#9face6);
+font-family:sans-serif;
+}
+.calculator{
+background:silver;
+padding:25px;
+border-radius:20px;
+box-shadow:0px 8px rgba(0,0,0,0.3);
+width:330px;
+}
+.display
+{
+width:100%;	
+height:60px;
+margin-bottom:20px;
+text-align:right;
+padding:15px;
+font-size:1.8rem;
+border:none;
+border-radius:12px;
+background:#2d2d3a;
+color:#fff;
+box-shadow:inset 0px 4px 8px rgba(0,0,0,0.5);
+}
+.buttons{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+button{
+padding:18px;
+font-size:1.3rem;
+border:none;
+border-radius:12px;
+cursor:pointer;
+background:#2d2d3a;
+color:#fff;
+transition:all 0.2s ease-in-out;
+box-shadow:0xp 4px 8px rgba(0,0,0,0.25);
+}
+button:hover
+{
+background:#3a3a4d;
+transform:translateY(-2px);
+}
+button:active{
+transform:scale(0.95);
+}
+.operator{
+background:#f39c12;
+}
+.operator:hover{
+#e67e22;
+}
+.clear{
+background:#e74c3c;
+}
+.clear:hover{
+background:#c0392b;
+}
+.equal{
+background:#27ae60;
+grid-column:span 2;
+}
+.equal:hover{
+background:#219150;
+}
+</style>
+</head>
+<body>
+<div class="calculator">
+<input type="text" class="display" id="display">
+<div class="buttons">
+<button class="clear" onclick="clearDisplay()">C</button>
+<button onclick="deleteLast()"><i class="fa-solid fa-delete-left"></i></button>
+<button onclick="appendfValue('00')">00</button>
+<button onclick="appendfValue('0')">0</button>
+<button class="operator" onclick="appendfValue('+')"><i class="fa-solid fa-plus"></i></button>
+<button onclick="appendfValue('7')">7</button>
+<button onclick="appendfValue('8')">8</button>
+<button onclick="appendfValue('9')">9</button>
+<button class="operator" onclick="appendfValue('-')"><i class="fa-solid fa-minus"></i></button>
+<button onclick="appendfValue('4')">4</button>
+<button onclick="appendfValue('5')">5</button>
+<button onclick="appendfValue('6')">6</button>
+<button class="operator" onclick="appendfValue('*')"><i class="fa-solid fa-xmark"></i></button>
+<button onclick="appendfValue('1')">1</button>
+<button onclick="appendfValue('2')">2</button>
+<button onclick="appendfValue('3')">3</button>
+<button class="operator" onclick="appendfValue('/')"><i class="fa-solid fa-divide"></i></button>
+<button onclick="appendfValue('.')">.</button>
+<button class="equal" onclick="calculate()"><i class="fa-solid fa-equals"></i></button>
+</div>
+</div>
+<script>
+let display=document.getElementById("display");
+function appendfValue(value){
+if(display.value=="Error"){
+display.value+="";
+dispaly.value+=value;
+}
+else{
+display.value+=value;
+}
+}
+function clearDisplay(){
+display.value="";
+}
+function deleteLast()
+{
+display.value=display.value.slice(0,-1);
+}
+function calculate(){
+try{
+display.value=eval(display.value);
+}
+catch{
+display.vlaue="Error";
+}
+}
+</script>
+</body>
+</hmtl>
