@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        body{
+            font-style:italic;
+            color:blue;
+            background-color:lighgrey;
+        }
+        .S{
+            text-align:center;
+            border:4px;
+            align-items:center;
+            width:300px;
+            height:300px;
+            border:5px solid navy;
+            padding:20px;
+            margin:50px auto;
+            border-radius:20px;
+        }
+        </style>
+        </style>
+        <script>
+        function Check(){
+            S=document.getElementById("Salary").value;
+            C=document.getElementById("Credit").value;
+            if(S>=30000){
+                if(C>=750){
+                    alert("You are Eligible");
+                }
+                else{
+                    alert("You are not Elgible because of your low Credit Score");
+                }
+            
+            }
+             else{
+                alert("You are not Eliginle because of your Salary limit");
+            }
+        }
+</script>
+    </head>
+    <body>
+        <div class="S">
+        <h2>Loan Eligiblity Checker</h2>
+        Enter your Salary:<input type="number" name="Salary" id="Salary"><br><br>
+        Enter your Credit Score:<input type="number" name="Credit" id="Credit"><br><br>
+        <button onclick="Check()">Check Eligibility</button>
+        </div>
+    </body>
